@@ -1,0 +1,31 @@
+{
+  "name": "rd-audio-visual",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^8.15.10",
+    "@types/three": "^0.158.2",
+    "next": "14.0.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "three": "^0.158.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.2",
+    "typescript": "^5"
+  },
+  "volta": {
+    "node": "20.9.0",
+    "yarn": "3.6.4"
+  }
+}
