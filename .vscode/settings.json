@@ -3,7 +3,12 @@
     "**/.yarn": true,
     "**/.pnp.*": true
   },
+  // "prettier.prettierPath": ".yarn/sdks/prettier",
+  "prettier.configPath": ".prettierrc",
   "eslint.nodePath": ".yarn/sdks",
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "editor.formatOnSave": false,
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
 }
