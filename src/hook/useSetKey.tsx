@@ -1,13 +1,23 @@
 import { useEffect, useRef } from 'react'
 import { useKeyPress } from 'react-use'
 
-const useSetKey = ({key, onKeyPress, onKeyUp, options = {}}: {key: string, onKeyPress: () => void, onKeyUp: () => void, options?: Record<string, any>}) => {
-  const isPressed = useKeyPress(key);
+const useSetKey = ({
+  keyType,
+  onKeyPress,
+  onKeyUp,
+  options = {},
+}: {
+  keyType: string
+  onKeyPress: () => void
+  onKeyUp: () => void
+  options?: Record<string, any>
+}) => {
+  const isPressed = useKeyPress(keyType)
   const isFlag = useRef(false)
   useEffect(() => {
     // console.log({isPressed: isPressed[0]})
-    if(isPressed[0]) {
-      if(!isFlag.current) {
+    if (isPressed[0]) {
+      if (!isFlag.current) {
         isFlag.current = true
         onKeyPress()
       }

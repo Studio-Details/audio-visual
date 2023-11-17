@@ -1,9 +1,9 @@
-import AudioMaster from "@/function/AudioMaster"
+import AudioMaster from '@/function/AudioMaster'
 
-export default class Oscillator {
+export default class CustomOscillator {
   audioMaster: AudioMaster
   ctx: AudioContext
-  self: Oscillator
+  self: CustomOscillator
   osc?: OscillatorNode
   gainNode?: GainNode
 
@@ -13,7 +13,15 @@ export default class Oscillator {
     this.self = this
   }
 
-  play({freq = 261, type = "sine", gain = 1.0}: {freq?: number, type?: OscillatorType, gain?: number}): void {
+  play({
+    freq = 261,
+    type = 'sine',
+    gain = 1.0,
+  }: {
+    freq?: number
+    type?: OscillatorType
+    gain?: number
+  } = {}): void {
     // setup
     this.osc = this.ctx.createOscillator()
     this.gainNode = this.ctx.createGain()
@@ -24,6 +32,7 @@ export default class Oscillator {
     // connnect
     this.osc.connect(this.gainNode)
     this.gainNode.connect(this.ctx.destination)
+    
 
     // play
     this.osc.start(0)
@@ -31,12 +40,11 @@ export default class Oscillator {
 
   stop(): void {
     this.osc?.stop(0)
-    if(this.gainNode) {
+    if (this.gainNode) {
       this.osc?.disconnect(this.gainNode)
       this.gainNode?.disconnect(this.ctx.destination)
     }
     this.osc = undefined
     this.gainNode = undefined
-
   }
 }
