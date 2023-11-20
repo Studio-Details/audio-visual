@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useKeyPress } from 'react-use'
+console.log('useSetKey')
 
 const useSetKey = ({
   keyType,
