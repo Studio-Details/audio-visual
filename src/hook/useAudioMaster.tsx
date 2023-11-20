@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from 'react'
 
 const FFT_SIZE: number = 256
 
@@ -31,27 +31,27 @@ const useAudioMaster = () => {
   }, [])
 
   const startTick = (keyType: string) => {
-    if(!ctx || !analyser) return
-    if(timer) clearTimeout(timer)
+    if (!ctx || !analyser) return
+    if (timer) clearTimeout(timer)
     NowKeyList.push(keyType)
-    if(isPlaying.current) return
+    if (isPlaying.current) return
     isPlaying.current = true
     onTick()
   }
 
   const stopTick = (keyType: string) => {
-    if(!ctx || !analyser) return
-    if(!isPlaying.current) return
+    if (!ctx || !analyser) return
+    if (!isPlaying.current) return
     NowKeyList = NowKeyList.filter((key) => key !== keyType)
-    if(NowKeyList.length) return
+    if (NowKeyList.length) return
     timer = setTimeout(() => {
       isPlaying.current = false
     }, 700)
   }
 
   const onTick = () => {
-    if(!ctx || !analyser) return
-    if(!isPlaying.current) return
+    if (!ctx || !analyser) return
+    if (!isPlaying.current) return
     const _FreqArray = new Float32Array(FreqLength)
     const _TDArray = new Float32Array(TDLength)
     analyser.getFloatTimeDomainData(_FreqArray)
@@ -76,7 +76,7 @@ const useAudioMaster = () => {
     setTDArray,
 
     startTick,
-    stopTick
+    stopTick,
   }
 }
 
